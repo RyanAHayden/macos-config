@@ -14,7 +14,6 @@ shift + alt - l : yabai -m window --swap east
 
 # maximize a window
 alt - f : yabai -m window --toggle zoom-fullscreen
-#alt - f : yabai -m window --toggle zoom-parent
 
 # fast focus desktop
 alt - 1 : yabai -m space --focus 1
@@ -36,7 +35,6 @@ alt - d : yabai -m space --focus next;
 shift + alt - a : yabai -m window --space prev; yabai -m space --focus prev;
 shift + alt - d : yabai -m window --space next; yabai -m space --focus next;
 
-
 # move window to space #
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
@@ -51,7 +49,6 @@ shift + alt - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # toggle window float
 alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-#shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # Applications launch
 shift + cmd - return : open /Applications/Zen.app -n --args --blank-window;
@@ -67,18 +64,13 @@ shift + cmd - m : open /Applications/Spotify.app;
 # Shortcuts to launch / focus on VS code, outlook, firefox, chrome, webex, etc.m
 #shift + alt - n : open /Applications/Visual\ Studio\ Code.app
 #cmd + alt - return : zsh
-#
-#
-#
 #cmd + alt + ctrl - c : open /Applications/Google\ Chrome.app
 #cmd + alt + ctrl - t : osascript -e 'tell application "Terminal" to activate'
 #cmd + alt + ctrl - w : osascript -e 'tell application "Webex Meetings" to activate' || open /Applications/Webex.app
 
-
 # balance out tree of windows (resize to occupy same area)
 shift + alt - r : yabai -m space --balance
 
-#
 ##change focus between external displays (left and right)
 #alt - s: yabai -m display --focus west
 #alt - g: yabai -m display --focus east
