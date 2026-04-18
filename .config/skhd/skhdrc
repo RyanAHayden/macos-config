@@ -57,7 +57,7 @@ shift + cmd - b : open /Applications/Zen.app -n;
 cmd - return : open /Applications/Ghostty.app -n;
 shift + cmd - d : open /Applications/vesktop.app -n;
 shift + cmd - k : id=$(yabai -m query --windows | jq -r '[.[] | select(.app == "KeePassXC")] | first | .id'); [ -n "$id" ] && yabai -m window "$id" --space mouse && yabai -m window --focus "$id" || open /Applications/keepassxc.app;
-ctrl + cmd - f : open ~ -n;
+ctrl + cmd - f : open ~;
 shift + cmd - n : /Applications/Ghostty.app/Contents/MacOS/ghostty -e nvim
 shift + cmd - m : open /Applications/Spotify.app;
 
