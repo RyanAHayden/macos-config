@@ -30,13 +30,6 @@ sketchybar --default \
   icon.highlight_color="$ACCENT_COLOR" \
   label.highlight_color="$ACCENT_COLOR"
 
-sketchybar --add item hover_watcher center \
-  --set hover_watcher \
-  drawing=off \
-  updates=on \
-  script="$PLUGIN_DIR/hover_watcher.sh" \
-  --subscribe hover_watcher mouse.entered.global mouse.exited.global
-
 sketchybar --add event window_change
 
 for i in $(seq 1 "$SPACE_COUNT"); do
