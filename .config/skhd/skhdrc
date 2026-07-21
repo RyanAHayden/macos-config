@@ -1,6 +1,6 @@
 shift + cmd - y : yabai --stop-service; yabai --start-service; sudo yabai --load-sa;
 cmd - p : skhd --restart-service && yabai --restart-service
-cmd - t : yabai --stop-service
+# cmd - t : yabai --stop-service
 
 # change window focus within space
 alt - j : yabai -m window --focus south
