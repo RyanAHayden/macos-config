@@ -4,8 +4,7 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_created action="$HOME/.config/yabai/restore_float_state.sh"
-yabai -m signal --add event=window_created action="sketchybar --trigger window_change"
-yabai -m signal --add event=window_destroyed action="sketchybar --trigger window_change"
+yabai -m signal --add event=space_changed action="open -gj 'swiftbar://refreshPlugin?name=workspace.1s.sh'"
 
 # BSP layout
 yabai -m config layout bsp
@@ -29,7 +28,15 @@ yabai -m config mouse_drop_action swap
 # Active window border (via JankyBorders)
 borders active_color=0xffe1e1e1 inactive_color=0x00000000 width=6.0 &
 
+# Pull newly opened app windows to the space that was active when the bind was pressed
+yabai -m signal --add event=window_created app="^Ghostty$"     action="s=\$(cat /tmp/yabai_target_space 2>/dev/null); [ -n \"\$s\" ] && yabai -m window \$YABAI_WINDOW_ID --space \$s && yabai -m space --focus \$s"
+yabai -m signal --add event=window_created app="^Zen Browser$" action="s=\$(cat /tmp/yabai_target_space 2>/dev/null); [ -n \"\$s\" ] && yabai -m window \$YABAI_WINDOW_ID --space \$s && yabai -m space --focus \$s"
+yabai -m signal --add event=window_created app="^Vesktop$"     action="s=\$(cat /tmp/yabai_target_space 2>/dev/null); [ -n \"\$s\" ] && yabai -m window \$YABAI_WINDOW_ID --space \$s && yabai -m space --focus \$s"
+yabai -m signal --add event=window_created app="^Finder$"      action="s=\$(cat /tmp/yabai_target_space 2>/dev/null); [ -n \"\$s\" ] && yabai -m window \$YABAI_WINDOW_ID --space \$s && yabai -m space --focus \$s"
+yabai -m signal --add event=window_created app="^Spotify$"     action="s=\$(cat /tmp/yabai_target_space 2>/dev/null); [ -n \"\$s\" ] && yabai -m window \$YABAI_WINDOW_ID --space \$s && yabai -m space --focus \$s"
+
 # Float system apps that don't tile well
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Davinci$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Finder$" manage=off title="^Copy$|^Move$|^Delete$|^Trash$"
